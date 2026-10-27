@@ -1,0 +1,9 @@
+# Voice Ordering — complete project (free-tier defaults)
+-e ./packages/menu_engine[dev]
+-e ./apps/web
+-e ./apps/voice_server
+
+pytest>=8.0
+uvicorn[standard]>=0.32
+edge-tts>=6.1.0
+livekit-api>=0.8.0

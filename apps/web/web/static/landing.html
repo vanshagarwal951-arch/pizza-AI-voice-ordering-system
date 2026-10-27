@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DIALOG Pizza — AI Voice Ordering</title>
+<meta name="description" content="AI-powered voice ordering assistant for restaurants. Take orders, validate customizations, and manage incoming requests through natural conversation."/>
+<link rel="stylesheet" href="/static/css/design-system.css"/>
+<style>
+/* ===== Landing-page-specific styles ===== */
+.landing-wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* -- Navigation -- */
+.landing-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.landing-nav .landing-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.nav-logo {
+  width: 36px;
+  height: 36px;
+  background: var(--accent);
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.nav-brand-text {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.nav-links a {
+  display: block;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: color 0.15s, background 0.15s;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  background: var(--bg-subtle);
+}
+
+.nav-links a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem;
+  cursor: pointer;
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-cta .ds-btn:not(.mobile-menu-btn) { display: none; }
+  .mobile-menu-btn { display: flex; }
+
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* -- Hero -- */
+.hero {
+  padding-block: 4.5rem 3rem;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.85rem;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  max-width: 700px;
+  margin: 0 auto 1.25rem;
+  text-wrap: balance;
+}
+
+.hero-sub {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* -- Demo Preview -- */
+.demo-section {
+  padding-block: 2rem 4rem;
+}
+
+.demo-window {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.demo-topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border);
+}
+
+.demo-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+
+.demo-dot:nth-child(1) { background: #ef4444; opacity: 0.6; }
+.demo-dot:nth-child(2) { background: #f59e0b; opacity: 0.6; }
+.demo-dot:nth-child(3) { background: #22c55e; opacity: 0.6; }
+
+.demo-topbar-title {
+  flex: 1;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.demo-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 320px;
+}
+
+@media (max-width: 640px) {
+  .demo-body { grid-template-columns: 1fr; }
+}
+
+.demo-chat {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  border-right: 1px solid var(--border);
+}
+
+@media (max-width: 640px) {
+  .demo-chat { border-right: none; border-bottom: 1px solid var(--border); }
+}
+
+.demo-msg {
+  max-width: 85%;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.demo-msg-user {
+  align-self: flex-end;
+  background: var(--accent);
+  color: var(--accent-text);
+  border-bottom-right-radius: 4px;
+}
+
+.demo-msg-agent {
+  align-self: flex-start;
+  background: var(--bg-subtle);
+  color: var(--text);
+  border-bottom-left-radius: 4px;
+}
+
+.demo-cart {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.demo-cart-title {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.demo-cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+
+.demo-cart-item-name { font-weight: 600; color: var(--text); }
+.demo-cart-item-detail { font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.1rem; }
+.demo-cart-item-price { font-weight: 700; font-variant-numeric: tabular-nums; color: var(--text); }
+
+.demo-cart-total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  margin-top: auto;
+  border-top: 2px solid var(--border-strong);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.demo-cart-total .demo-cart-item-price { color: var(--accent); font-size: 1rem; }
+
+.demo-label {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/* -- How It Works -- */
+.section { padding-block: 4rem; }
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 0.75rem;
+  text-wrap: balance;
+}
+
+.section-header p {
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0 auto;
+  font-size: 0.9375rem;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .steps-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 560px) {
+  .steps-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+}
+
+.step-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+}
+
+.step-num {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 0.85rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.step-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.step-title {
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: 0.35rem;
+  color: var(--text);
+}
+
+.step-desc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* -- Features -- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .features-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .features-grid { grid-template-columns: 1fr; }
+}
+
+.feature-card {
+  padding: 1.5rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: box-shadow 0.2s;
+}
+
+.feature-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-md);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.feature-icon-accent { background: var(--accent-light); }
+.feature-icon-green { background: var(--green-light); }
+.feature-icon-orange { background: var(--orange-light); }
+.feature-icon-yellow { background: var(--yellow-light); }
+
+.feature-title {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  margin-bottom: 0.35rem;
+}
+
+.feature-desc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* -- CTA -- */
+.cta-section {
+  padding-block: 3rem 4rem;
+}
+
+.cta-box {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.cta-box h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  margin-bottom: 0.75rem;
+  text-wrap: balance;
+}
+
+.cta-box p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  max-width: 440px;
+  margin-inline: auto;
+  font-size: 0.9375rem;
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* -- Footer -- */
+.landing-footer {
+  border-top: 1px solid var(--border);
+  padding-block: 2rem;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
+
+.footer-links a {
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-links a:hover { color: var(--text); }
+
+.footer-links a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="landing-nav" role="navigation" aria-label="Main navigation">
+  <div class="landing-wrap">
+    <a href="/" class="nav-brand" aria-label="DIALOG Pizza home">
+      <div class="nav-logo" aria-hidden="true">🍕</div>
+      <span class="nav-brand-text">DIALOG Pizza</span>
+    </a>
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="/dashboard">Dashboard</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/dashboard" class="ds-btn ds-btn-primary ds-btn-sm">Open Dashboard</a>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="landing-wrap">
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+      AI-Powered Voice Ordering
+    </div>
+    <h1>Your Next Restaurant Order Starts with a Conversation.</h1>
+    <p class="hero-sub">DIALOG Pizza is an AI-powered voice ordering assistant designed to help restaurants take orders, validate customizations, and manage incoming requests.</p>
+    <div class="hero-actions">
+      <a href="/dashboard#order" class="ds-btn ds-btn-primary ds-btn-lg">Try Voice Ordering</a>
+      <a href="/dashboard#chat" class="ds-btn ds-btn-secondary ds-btn-lg">Try Text Chat</a>
+    </div>
+  </div>
+</section>
+
+<!-- Demo Preview -->
+<section class="demo-section" aria-label="Product demonstration">
+  <div class="landing-wrap">
+    <div class="demo-window">
+      <div class="demo-topbar" aria-hidden="true">
+        <div class="demo-dot"></div>
+        <div class="demo-dot"></div>
+        <div class="demo-dot"></div>
+        <div class="demo-topbar-title">DIALOG Pizza — Live Order Session</div>
+      </div>
+      <div class="demo-body">
+        <div class="demo-chat" aria-label="Simulated conversation">
+          <div class="demo-msg demo-msg-user">Hi, can I get a medium Margherita with extra cheese?</div>
+          <div class="demo-msg demo-msg-agent">Sure! I've added a Medium Margherita with extra cheese to your cart. That's ₹330. Would you like anything else?</div>
+          <div class="demo-msg demo-msg-user">Add a Virgin Mint Mojito too.</div>
+          <div class="demo-msg demo-msg-agent">Virgin Mint Mojito added — ₹110. Your total is ₹440 before tax. Ready to finalize?</div>
+          <div class="demo-msg demo-msg-user">Yes, finalize it. Cash on delivery.</div>
+          <div class="demo-msg demo-msg-agent">Order confirmed! 🎉 One Medium Margherita with extra cheese and one Virgin Mint Mojito. Total: ₹462 (incl. 5% GST). Preparing now!</div>
+        </div>
+        <div class="demo-cart" aria-label="Simulated cart">
+          <div class="demo-cart-title">Order Summary</div>
+          <div class="demo-cart-item">
+            <div>
+              <div class="demo-cart-item-name">Medium Margherita</div>
+              <div class="demo-cart-item-detail">+ Extra Cheese</div>
+            </div>
+            <div class="demo-cart-item-price">₹330</div>
+          </div>
+          <div class="demo-cart-item">
+            <div>
+              <div class="demo-cart-item-name">Virgin Mint Mojito</div>
+              <div class="demo-cart-item-detail">Regular</div>
+            </div>
+            <div class="demo-cart-item-price">₹110</div>
+          </div>
+          <div class="demo-cart-total">
+            <span>Total (incl. GST)</span>
+            <span class="demo-cart-item-price">₹462</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="demo-label">Simulated demo conversation — actual interactions may vary</p>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="section" id="how-it-works">
+  <div class="landing-wrap">
+    <div class="section-header">
+      <h2>How an Order Flows</h2>
+      <p>From the first word to the kitchen ticket, every step is validated and confirmed.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-icon" aria-hidden="true">🗣️</div>
+        <div class="step-title">Customer Speaks</div>
+        <div class="step-desc">Voice or text — the customer requests items in natural language.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-icon" aria-hidden="true">🧠</div>
+        <div class="step-title">AI Interprets</div>
+        <div class="step-desc">The assistant parses the request and maps it to your actual menu.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-icon" aria-hidden="true">✅</div>
+        <div class="step-title">Menu Validates</div>
+        <div class="step-desc">Sizes, toppings, availability, and prices are checked against the source of truth.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-icon" aria-hidden="true">📋</div>
+        <div class="step-title">Customer Confirms</div>
+        <div class="step-desc">The full cart and total are read back before the customer approves.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">5</div>
+        <div class="step-icon" aria-hidden="true">🎫</div>
+        <div class="step-title">Kitchen Receives</div>
+        <div class="step-desc">A kitchen ticket is created and the order enters the KDS queue.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section" id="features" style="background:var(--bg-subtle); margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px));">
+  <div class="landing-wrap">
+    <div class="section-header">
+      <h2>Built for Real Restaurants</h2>
+      <p>Every feature below is implemented and working in this codebase — no mockups, no vaporware.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon feature-icon-accent" aria-hidden="true">🎙️</div>
+        <div class="feature-title">Voice Ordering</div>
+        <div class="feature-desc">Real-time speech-to-text via Deepgram, processed by a Groq LLM agent with Silero VAD, streamed over LiveKit WebRTC.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon feature-icon-green" aria-hidden="true">💬</div>
+        <div class="feature-title">Text Chat</div>
+        <div class="feature-desc">Groq-powered text ordering with keyword fallback. Customers type orders as natural sentences.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon feature-icon-orange" aria-hidden="true">📦</div>
+        <div class="feature-title">Menu Validation Engine</div>
+        <div class="feature-desc">Every item, size, and topping is validated against the live menu JSON. Out-of-stock items are rejected in real time.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon feature-icon-yellow" aria-hidden="true">🧾</div>
+        <div class="feature-title">Kitchen Display</div>
+        <div class="feature-desc">Orders flow into a Kanban-style KDS with Queued → Preparing → Ready stages. Staff advance tickets with one click.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon feature-icon-accent" aria-hidden="true">🔒</div>
+        <div class="feature-title">Role-Based Auth</div>
+        <div class="feature-desc">PBKDF2 password hashing, HMAC-signed tokens, IP rate limiting, three-tier access (public, staff, admin).</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon feature-icon-green" aria-hidden="true">💳</div>
+        <div class="feature-title">Payments &amp; POS</div>
+        <div class="feature-desc">COD, UPI, and Razorpay with mock fallback. POS sync ready for Petpooja and Posist integrations.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="landing-wrap">
+    <div class="cta-box">
+      <h2>See It Working</h2>
+      <p>Open the dashboard to try voice ordering, browse the live menu, or explore the kitchen display and analytics.</p>
+      <div class="cta-actions">
+        <a href="/dashboard" class="ds-btn ds-btn-primary ds-btn-lg">Open Dashboard</a>
+        <a href="/dashboard#menu" class="ds-btn ds-btn-secondary ds-btn-lg">Browse Menu</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="landing-footer">
+  <div class="landing-wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span aria-hidden="true">🍕</span>
+        <span>DIALOG Pizza · AI Voice Ordering Platform</span>
+      </div>
+      <ul class="footer-links" role="list">
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/dashboard#menu">Menu</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#features">Features</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile menu toggle
+const menuBtn = document.getElementById('mobile-menu-btn');
+const navLinks = document.getElementById('nav-links');
+menuBtn.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', String(open));
+});
+
+// Close mobile menu on link click
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.getElementById(a.getAttribute('href').slice(1));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Keyboard support: Enter or Space triggers nav items
+menuBtn.addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    menuBtn.click();
+  }
+});
+</script>
+</body>
+</html>

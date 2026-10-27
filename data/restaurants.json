@@ -1,0 +1,20 @@
+[
+  {
+    "id": "dialog-pizza",
+    "name": "DIALOG Pizza",
+    "tagline": "Make It A Habit To Eat",
+    "currency": "INR",
+    "logo_emoji": "🍕",
+    "primary_color": "#E85D04",
+    "locations": ["Mumbai", "Pune", "Delhi"]
+  },
+  {
+    "id": "dialog-express",
+    "name": "DIALOG Express",
+    "tagline": "Quick Bites, Big Flavor",
+    "currency": "INR",
+    "logo_emoji": "⚡",
+    "primary_color": "#F48C06",
+    "locations": ["Bangalore"]
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.venv/Scripts/python -m pytest packages/menu_engine/tests -q --tb=short)",
+      "Bash(.venv/Scripts/python -c ' *)",
+      "Bash(pip list *)",
+      "Bash(../../.venv/Scripts/python.exe -m pytest tests/test_auth.py -v)",
+      "Bash(../../.venv/Scripts/python.exe -m pytest tests/test_api_auth.py -v)",
+      "Bash(../../.venv/Scripts/python.exe -m pytest tests/test_security.py -v)",
+      "Bash(.venv/Scripts/python.exe -m pytest --tb=short -q)",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python -m pytest apps/web/tests/test_api_auth.py -v --tb=short)",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python -m pytest apps/web/tests/test_security.py -v --tb=short)",
+      "Bash(./.venv/Scripts/python *)",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python.exe -m pytest packages/menu_engine/tests apps/web/tests)",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python.exe -c \"print\\('hello'\\)\")",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python.exe -c \"import menu_engine; print\\('menu_engine imported'\\)\")",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python.exe -m pytest packages/menu_engine/tests/test_persistence.py)",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python.exe -m pytest packages/menu_engine/tests/test_menu_resolver.py)",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python -m pytest apps/web/tests packages/menu_engine/tests -q --tb=short)",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python -m pytest apps/web/tests/test_security.py -k \"test_checkout_validates_phone_number\" -vv)",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python -c \"from web.main import app; from fastapi.testclient import TestClient; c = TestClient\\(app\\); r = c.post\\('/api/sessions/test-room/checkout', json={'payment_method': 'cod', 'customer_phone': '+919876543210'}\\); print\\(r.status_code, r.text\\)\")",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python -m pytest apps/web/tests/test_security.py -q)",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python -m pytest apps/web/tests/test_frontend.py -v)",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python -m pytest apps/web/tests packages/menu_engine/tests -q)",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python -m pytest apps/web/tests -q)",
+      "PowerShell(Start-Process powershell -ArgumentList \"-NoExit -ExecutionPolicy Bypass -File C:\\\\Users\\\\vansh\\\\Projects\\\\scripts\\\\start_web.ps1\")",
+      "PowerShell(Get-Process *)",
+      "PowerShell(& \"C:\\\\Users\\\\vansh\\\\Projects\\\\.venv\\\\Scripts\\\\python.exe\" -c \"import uvicorn; from web.main import app; print\\('App imported successfully!'\\)\")",
+      "PowerShell(powershell.exe -ExecutionPolicy Bypass -Command \"& 'C:\\\\Users\\\\vansh\\\\Projects\\\\scripts\\\\start_web.ps1'\")",
+      "PowerShell(Start-Process \"http://localhost:3000/\")",
+      "PowerShell(& \"C:\\\\Users\\\\vansh\\\\Projects\\\\.venv\\\\Scripts\\\\python.exe\" -m menu_engine.utils.prerequisites)",
+      "PowerShell(& \"C:\\\\Users\\\\vansh\\\\Projects\\\\.venv\\\\Scripts\\\\python.exe\" apps\\\\voice_server\\\\voice_server\\\\agent.py --help)",
+      "PowerShell(& \"C:\\\\Users\\\\vansh\\\\Projects\\\\.venv\\\\Scripts\\\\python.exe\" apps\\\\voice_server\\\\voice_server\\\\agent.py dev)",
+      "PowerShell(try { $res = Invoke-RestMethod -Uri \"http://127.0.0.1:3000/api/health\" -Method Get -TimeoutSec 3; $res | ConvertTo-Json } catch { $_.Exception.Message })",
+      "PowerShell(& \"C:\\\\Users\\\\vansh\\\\Projects\\\\.venv\\\\Scripts\\\\python.exe\" -c \"from menu_engine.utils.groq_client import groq_chat_completion, get_groq_voice_model; print\\('Model:', get_groq_voice_model\\(\\)\\); res = groq_chat_completion\\(model=get_groq_voice_model\\(\\), messages=[{'role': 'user', 'content': 'Hello'}]\\); print\\('Response:', res['choices'][0]['message']['content']\\)\")",
+      "PowerShell(& \"C:\\\\Users\\\\vansh\\\\Projects\\\\.venv\\\\Scripts\\\\python.exe\" -c \"import os, requests; from dotenv import load_dotenv; load_dotenv\\(\\); key = os.getenv\\('DEEPGRAM_API_KEY'\\); r = requests.get\\('https://api.deepgram.com/v1/projects', headers={'Authorization': f'Token {key}'}\\); print\\('Deepgram projects:', r.status_code, r.json\\(\\)\\)\")",
+      "PowerShell(& \"C:\\\\Users\\\\vansh\\\\Projects\\\\.venv\\\\Scripts\\\\python.exe\" -c \"import os, requests; from dotenv import load_dotenv; load_dotenv\\(\\); key = os.getenv\\('DEEPGRAM_API_KEY'\\); pid = 'fe1444af-b6ad-4b0a-a466-42f16076f883'; r = requests.get\\(f'https://api.deepgram.com/v1/projects/{pid}/balances', headers={'Authorization': f'Token {key}'}\\); print\\('Deepgram balances:', r.status_code, r.json\\(\\)\\)\")",
+      "PowerShell(try { $res = Invoke-RestMethod -Uri \"http://127.0.0.1:3000/api/livekit/dispatch?room=demo-room\" -Method Post; $res | ConvertTo-Json } catch { $_.Exception.Message })",
+      "PowerShell(& \"C:\\\\Users\\\\vansh\\\\Projects\\\\.venv\\\\Scripts\\\\python.exe\" -m pytest apps/web/tests/test_frontend.py -v)",
+      "PowerShell(Start-Process \"http://localhost:3000\")",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python -c \"import uvicorn; print\\(uvicorn.__version__\\)\")"
+    ]
+  },
+  "enabledPlugins": {
+    "ponytail@ponytail": true
+  }
+}

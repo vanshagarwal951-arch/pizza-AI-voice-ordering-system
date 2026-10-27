@@ -1,0 +1,1598 @@
+{
+  "restaurant": {
+    "id": "dialog-pizza",
+    "name": "DIALOG Pizza",
+    "currency": "INR",
+    "tagline": "Make It A Habit To Eat",
+    "tax_percent": 5,
+    "delivery_fee_cents": 4000,
+    "phone": "+91 98765 43210",
+    "gst_number": "27AABCD1234E1Z5"
+  },
+  "sizes": [
+    {
+      "id": "regular",
+      "name": "Regular"
+    },
+    {
+      "id": "small",
+      "name": "Small (S)"
+    },
+    {
+      "id": "medium",
+      "name": "Medium (M)"
+    },
+    {
+      "id": "large",
+      "name": "Large (L)"
+    }
+  ],
+  "categories": [
+    {
+      "id": "veg-pizzas",
+      "name": "Hand Toasted Veg Pizzas"
+    },
+    {
+      "id": "non-veg-pizzas",
+      "name": "Hand Toasted Non-Veg Pizzas"
+    },
+    {
+      "id": "mojito-vohito",
+      "name": "Mojito - Vohito"
+    },
+    {
+      "id": "iced-teas",
+      "name": "Iced Teas"
+    },
+    {
+      "id": "sides",
+      "name": "Sides"
+    },
+    {
+      "id": "pastas",
+      "name": "Pastas"
+    },
+    {
+      "id": "crispy-toasties",
+      "name": "Crispy Toasties"
+    },
+    {
+      "id": "subs",
+      "name": "Subs"
+    },
+    {
+      "id": "burgers",
+      "name": "Burgers"
+    },
+    {
+      "id": "wraps",
+      "name": "Wraps"
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts"
+    },
+    {
+      "id": "coffees",
+      "name": "Coffees"
+    },
+    {
+      "id": "hot-beverages",
+      "name": "Hot Beverages"
+    },
+    {
+      "id": "cold-coffees",
+      "name": "Cold Coffees"
+    },
+    {
+      "id": "milkshakes-smoothies",
+      "name": "Milk Shakes & Smoothies"
+    }
+  ],
+  "items": [
+    {
+      "id": "virgin-mint-mojito",
+      "name": "Virgin Mint Mojito",
+      "category": "mojito-vohito",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 11000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "green-apple-mojito",
+      "name": "Green Apple Mojito",
+      "category": "mojito-vohito",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 11000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "cranberry-mojito",
+      "name": "Cranberry Mojito",
+      "category": "mojito-vohito",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 11000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "black-magic",
+      "name": "Black Magic",
+      "category": "mojito-vohito",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 11000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "bubble-gum-mojito",
+      "name": "Bubble Gum Mojito",
+      "category": "mojito-vohito",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 11000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "blue-curacao-mojito",
+      "name": "Blue Curacao Mojito",
+      "category": "mojito-vohito",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 11000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "kiwi-mojito",
+      "name": "Kiwi Mojito",
+      "category": "mojito-vohito",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 13000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "watermelon-mojito",
+      "name": "Water Melon Mojito",
+      "category": "mojito-vohito",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 13000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "lemon-mint-iced-tea",
+      "name": "Lemon Mint Iced Tea",
+      "category": "iced-teas",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 12000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Beloved refreshing drink always"
+    },
+    {
+      "id": "sparkling-peach-iced-tea",
+      "name": "Sparkling Peach Iced Tea",
+      "category": "iced-teas",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 12000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Peach infused tea on the rocks with crushed peach fruit"
+    },
+    {
+      "id": "watermelon-iced-tea",
+      "name": "Water Melon Iced Tea",
+      "category": "iced-teas",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 14000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "french-fries",
+      "name": "French Fries",
+      "category": "sides",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 15000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "chicken-nuggets",
+      "name": "Chicken Nuggets",
+      "category": "sides",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 16000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "peri-peri-fries",
+      "name": "Peri-Peri Fries",
+      "category": "sides",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 16000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "masala-fries",
+      "name": "Masala Fries",
+      "category": "sides",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 17000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "zesty-c4-fries",
+      "name": "Zesty C4 Fries",
+      "category": "sides",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 18000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "clucnk-n-crunch",
+      "name": "Clucnk N Crunch",
+      "category": "sides",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 25000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Chicken wings, popcorn chicken & masala fries"
+    },
+    {
+      "id": "dialogs-chicken-bucket",
+      "name": "Dialog's Chicken Bucket",
+      "category": "sides",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 55000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "penne-alfredo",
+      "name": "Penne Alfredo",
+      "category": "pastas",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 20000
+        }
+      },
+      "modifier_groups": [
+        "pasta_addon"
+      ],
+      "description": "Penne tossed with white sauce & garden vegetables"
+    },
+    {
+      "id": "penne-arrabiata",
+      "name": "Penne Arrabiata",
+      "category": "pastas",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 20000
+        }
+      },
+      "modifier_groups": [
+        "pasta_addon"
+      ],
+      "description": "Penne tossed with spicy red tomato sauce & garden vegetables"
+    },
+    {
+      "id": "zesty-pasta",
+      "name": "Zesty Pasta",
+      "category": "pastas",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 22000
+        }
+      },
+      "modifier_groups": [
+        "pasta_addon"
+      ]
+    },
+    {
+      "id": "pink-sauce-pasta",
+      "name": "Pink Sauce Pasta",
+      "category": "pastas",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 22000
+        }
+      },
+      "modifier_groups": [
+        "pasta_addon"
+      ]
+    },
+    {
+      "id": "mushroom-sauce-pasta",
+      "name": "Mushroom Sauce Pasta",
+      "category": "pastas",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 22000
+        }
+      },
+      "modifier_groups": [
+        "pasta_addon"
+      ]
+    },
+    {
+      "id": "makhni-sauce-pasta",
+      "name": "Makhni Sauce Pasta",
+      "category": "pastas",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 22000
+        }
+      },
+      "modifier_groups": [
+        "pasta_addon"
+      ]
+    },
+    {
+      "id": "pink-mushroom-sauce-pasta",
+      "name": "Pink Mushroom Sauce Pasta",
+      "category": "pastas",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 24000
+        }
+      },
+      "modifier_groups": [
+        "pasta_addon"
+      ]
+    },
+    {
+      "id": "oven-baked-pasta",
+      "name": "Oven Baked Pasta",
+      "category": "pastas",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 25000
+        }
+      },
+      "modifier_groups": [
+        "pasta_addon"
+      ],
+      "description": "Alfredo / Arrabiata / Makhni / Pink"
+    },
+    {
+      "id": "cheese-garlic-bread",
+      "name": "Cheese Garlic Bread",
+      "category": "crispy-toasties",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 11000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "cheese-garlic-bread-sticks",
+      "name": "Cheese Garlic Bread Sticks",
+      "category": "crispy-toasties",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 18000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "spicy-veg-sub",
+      "name": "Spicy Veg Sub",
+      "category": "subs",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 11000
+        }
+      },
+      "modifier_groups": [],
+      "description": "All veggies, without any patty"
+    },
+    {
+      "id": "aloo-tikki-sub",
+      "name": "Aloo Tikki Sub",
+      "category": "subs",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 12000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Potato patty filling"
+    },
+    {
+      "id": "hanging-green-sub",
+      "name": "Hanging Green Sub",
+      "category": "subs",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 13000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Includes veggie patty"
+    },
+    {
+      "id": "paneer-tikka-sub",
+      "name": "Paneer Tikka Sub",
+      "category": "subs",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 15000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Paneer marinated in spices & grilled in a tandoor"
+    },
+    {
+      "id": "chicken-tikka-sub",
+      "name": "Chicken Tikka Sub",
+      "category": "subs",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 15000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Marinated & tandoor grilled chicken"
+    },
+    {
+      "id": "chicken-seekh-sub",
+      "name": "Chicken Seekh Sub",
+      "category": "subs",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 15000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Seekh kebab filling with chicken mince, onions & spices"
+    },
+    {
+      "id": "aloo-tikki-burger",
+      "name": "Aloo Tikki Burger",
+      "category": "burgers",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 9000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "mc-veggie-burger",
+      "name": "Mc Veggie Burger",
+      "category": "burgers",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 10000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "super-freak-burger",
+      "name": "Super Freak Burger",
+      "category": "burgers",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 11000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "go-green-burger",
+      "name": "Go Green Burger",
+      "category": "burgers",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 12000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "crispy-chicken-burger",
+      "name": "Crispy Chicken Burger",
+      "category": "burgers",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 12000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "grilled-chicken-burger",
+      "name": "Grilled Chicken Burger",
+      "category": "burgers",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 13000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "crumby-chicken-burger",
+      "name": "Crumby Chicken Burger",
+      "category": "burgers",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 13000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "peri-peri-paneer-patty",
+      "name": "Peri Peri Paneer Patty",
+      "category": "burgers",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 14000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "korean-chicken-burger",
+      "name": "Korean Chicken Burger",
+      "category": "burgers",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 15000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "extra-cheese-slices",
+      "name": "Extra Cheese Slices",
+      "category": "burgers",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 3000
+        }
+      },
+      "modifier_groups": [
+        "burger_addon"
+      ]
+    },
+    {
+      "id": "aloo-tikki-wrap",
+      "name": "Aloo Tikki Wrap",
+      "category": "wraps",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 11000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "veggie-patty-wrap",
+      "name": "Veggie Patty Wrap",
+      "category": "wraps",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 12000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "paneer-tikka-wrap",
+      "name": "Paneer Tikka Wrap",
+      "category": "wraps",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 14000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "chicken-tikka-wrap",
+      "name": "Chicken Tikka Wrap",
+      "category": "wraps",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 15000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "chicken-seekh-wrap",
+      "name": "Chicken Seekh Wrap",
+      "category": "wraps",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 15000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "crispy-chicken-wrap",
+      "name": "Crispy Chicken Wrap",
+      "category": "wraps",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 15000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "choco-lava-cake",
+      "name": "Choco Lava Cake",
+      "category": "desserts",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 11000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "choco-lava-cake-ice-cream",
+      "name": "Choco Lava Cake With Vanilla Ice-Cream",
+      "category": "desserts",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 14000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "blueberry-cheese-cake",
+      "name": "Blue Berry Cheese Cake",
+      "category": "desserts",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 20000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "biscoff-cheese-cake",
+      "name": "Biscoff Cheese Cake",
+      "category": "desserts",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 22000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "cafe-americano",
+      "name": "Caf\u00e9 Americano",
+      "category": "coffees",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 10000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Black coffee"
+    },
+    {
+      "id": "happiness",
+      "name": "Happiness",
+      "category": "coffees",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 14000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Cappuccino with freshly grounded coffee beans imported from Malta"
+    },
+    {
+      "id": "cafe-latte",
+      "name": "Caf\u00e9 Latte",
+      "category": "coffees",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 15000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Creamier coffee with a vanilla shot"
+    },
+    {
+      "id": "cafe-mocha",
+      "name": "Caf\u00e9 Mocha",
+      "category": "coffees",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 15000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Chocolaty sibling of caf\u00e9 latte"
+    },
+    {
+      "id": "hazelnut-latte",
+      "name": "Hazelnut Latte",
+      "category": "coffees",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 15000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Hazelnut fusion with freshly grounded coffee beans"
+    },
+    {
+      "id": "caramel-latte",
+      "name": "Caramel Latte",
+      "category": "coffees",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 15000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Ye coffee hai ya toffee? Yum!"
+    },
+    {
+      "id": "hot-chocolate",
+      "name": "Hot Chocolate",
+      "category": "hot-beverages",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 14000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Hershey's cocoa with warm steamed milk & chocolate powder"
+    },
+    {
+      "id": "nutella-hot-chocolate",
+      "name": "Nutella Hot Chocolate",
+      "category": "hot-beverages",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 16000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Nutella lover's delight \u2014 warm without caffeine"
+    },
+    {
+      "id": "cafe-dialog-frappe",
+      "name": "Caf\u00e9 Dialog Frappe",
+      "category": "cold-coffees",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 11000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Classic cold coffee sprinkled with choco chips"
+    },
+    {
+      "id": "irish-iced-frappe",
+      "name": "Irish Iced Frappe",
+      "category": "cold-coffees",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 13000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "dialogs-dare-devil-frappe",
+      "name": "Dialog's Dare Devil Frappe",
+      "category": "cold-coffees",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 14000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Dark chocolate with dark roasted coffee"
+    },
+    {
+      "id": "crunchy-caramel-frappe",
+      "name": "Crunchy Caramel Frappe",
+      "category": "cold-coffees",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 14000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Toffee iced frappe"
+    },
+    {
+      "id": "hazelnut-frappe",
+      "name": "Hazelnut Frappe",
+      "category": "cold-coffees",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 14000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Hazelnut infusion with whipped cream topping"
+    },
+    {
+      "id": "double-choco-chip-frappe",
+      "name": "Double Choco Chip Frappe",
+      "category": "cold-coffees",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 14000
+        }
+      },
+      "modifier_groups": [],
+      "description": "Chocolaty sibling of chocolate heaven pleasure"
+    },
+    {
+      "id": "frozen-strawberry-margarita",
+      "name": "Frozen Strawberry Margarita Delight",
+      "category": "milkshakes-smoothies",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 11000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "chocolate-heaven-pleasure",
+      "name": "Chocolate Heaven Pleasure",
+      "category": "milkshakes-smoothies",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 13000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "toasted-marsh-mallow",
+      "name": "Toasted Marsh Mallow",
+      "category": "milkshakes-smoothies",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 13000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "cadbury-gems-kitkat",
+      "name": "Cadbury Gems Meets Kit-Kat",
+      "category": "milkshakes-smoothies",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 13000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "no-cardio-only-oreo",
+      "name": "No Cardio Only Oreo",
+      "category": "milkshakes-smoothies",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 13000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "strawberry-toasted-marsh-mallow",
+      "name": "Strawberry Toasted Marsh Mallow",
+      "category": "milkshakes-smoothies",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 13000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "nutella-love-story",
+      "name": "Nutella Love Story",
+      "category": "milkshakes-smoothies",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 15000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "choco-lava-shake",
+      "name": "Choco Lava Shake",
+      "category": "milkshakes-smoothies",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 17000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "biscoff-shake",
+      "name": "Biscoff Shake",
+      "category": "milkshakes-smoothies",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 17000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "ferrero-rocher-shake",
+      "name": "Ferrero Rocher Shake",
+      "category": "milkshakes-smoothies",
+      "is_available": true,
+      "sizes": {
+        "regular": {
+          "base_price_cents": 18000
+        }
+      },
+      "modifier_groups": []
+    },
+    {
+      "id": "margherita",
+      "name": "Margherita",
+      "category": "veg-pizzas",
+      "is_available": true,
+      "sizes": {
+        "small": {
+          "base_price_cents": 15000
+        },
+        "medium": {
+          "base_price_cents": 32000
+        },
+        "large": {
+          "base_price_cents": 53000
+        }
+      },
+      "modifier_groups": [
+        "pizza_upgrade",
+        "extra_toppings"
+      ],
+      "description": "An old country original \u2014 classic cheese",
+      "tags": [
+        "veg"
+      ]
+    },
+    {
+      "id": "c4-margherita",
+      "name": "C4 Margherita",
+      "category": "veg-pizzas",
+      "is_available": true,
+      "sizes": {
+        "small": {
+          "base_price_cents": 20000
+        },
+        "medium": {
+          "base_price_cents": 39000
+        },
+        "large": {
+          "base_price_cents": 59000
+        }
+      },
+      "modifier_groups": [
+        "pizza_upgrade",
+        "extra_toppings"
+      ],
+      "description": "Extra cheese on cheese \u2014 double cheese",
+      "tags": [
+        "veg"
+      ]
+    },
+    {
+      "id": "three-dimensions",
+      "name": "3 Dimensions",
+      "category": "veg-pizzas",
+      "is_available": true,
+      "sizes": {
+        "small": {
+          "base_price_cents": 22000
+        },
+        "medium": {
+          "base_price_cents": 38000
+        },
+        "large": {
+          "base_price_cents": 61000
+        }
+      },
+      "modifier_groups": [
+        "pizza_upgrade",
+        "extra_toppings"
+      ],
+      "description": "OTC / OTS / OTM \u2014 onion, tomato, capsicum, sweet corn, mushroom",
+      "tags": [
+        "veg"
+      ]
+    },
+    {
+      "id": "high-five",
+      "name": "High-Five",
+      "category": "veg-pizzas",
+      "is_available": true,
+      "sizes": {
+        "small": {
+          "base_price_cents": 23000
+        },
+        "medium": {
+          "base_price_cents": 40000
+        },
+        "large": {
+          "base_price_cents": 63000
+        }
+      },
+      "modifier_groups": [
+        "pizza_upgrade",
+        "extra_toppings"
+      ],
+      "description": "Onion, capsicum, mushroom, tomato, red paprika",
+      "tags": [
+        "veg"
+      ]
+    },
+    {
+      "id": "paneer-king",
+      "name": "Paneer King",
+      "category": "veg-pizzas",
+      "is_available": true,
+      "sizes": {
+        "small": {
+          "base_price_cents": 25000
+        },
+        "medium": {
+          "base_price_cents": 45000
+        },
+        "large": {
+          "base_price_cents": 67000
+        }
+      },
+      "modifier_groups": [
+        "pizza_upgrade",
+        "extra_toppings"
+      ],
+      "description": "Onion, capsicum, paneer, tomato, red paprika",
+      "tags": [
+        "veg"
+      ]
+    },
+    {
+      "id": "exotica",
+      "name": "Exotica",
+      "category": "veg-pizzas",
+      "is_available": true,
+      "sizes": {
+        "small": {
+          "base_price_cents": 25000
+        },
+        "medium": {
+          "base_price_cents": 41000
+        },
+        "large": {
+          "base_price_cents": 65000
+        }
+      },
+      "modifier_groups": [
+        "pizza_upgrade",
+        "extra_toppings"
+      ],
+      "description": "Red paprika, baby corn, capsicum, olives, jalapeno",
+      "tags": [
+        "veg"
+      ]
+    },
+    {
+      "id": "spicy-paneer",
+      "name": "Spicy Paneer",
+      "category": "veg-pizzas",
+      "is_available": true,
+      "sizes": {
+        "small": {
+          "base_price_cents": 26000
+        },
+        "medium": {
+          "base_price_cents": 46000
+        },
+        "large": {
+          "base_price_cents": 68000
+        }
+      },
+      "modifier_groups": [
+        "pizza_upgrade",
+        "extra_toppings"
+      ],
+      "description": "Tandoori spicy paneer, onion, capsicum, tomato & red paprika",
+      "tags": [
+        "veg"
+      ]
+    },
+    {
+      "id": "paneer-makhni",
+      "name": "Paneer Makhni",
+      "category": "veg-pizzas",
+      "is_available": true,
+      "sizes": {
+        "small": {
+          "base_price_cents": 26000
+        },
+        "medium": {
+          "base_price_cents": 46000
+        },
+        "large": {
+          "base_price_cents": 68000
+        }
+      },
+      "modifier_groups": [
+        "pizza_upgrade",
+        "extra_toppings"
+      ],
+      "description": "Makhni sauce, makhni paneer, onion, capsicum, tomato",
+      "tags": [
+        "veg"
+      ]
+    },
+    {
+      "id": "pindi-paneer",
+      "name": "Pindi Paneer",
+      "category": "veg-pizzas",
+      "is_available": true,
+      "sizes": {
+        "small": {
+          "base_price_cents": 26000
+        },
+        "medium": {
+          "base_price_cents": 48000
+        },
+        "large": {
+          "base_price_cents": 72000
+        }
+      },
+      "modifier_groups": [
+        "pizza_upgrade",
+        "extra_toppings"
+      ],
+      "description": "Tandoori spicy paneer, onion, tomato, sweet corn, jalapeno",
+      "tags": [
+        "veg"
+      ]
+    },
+    {
+      "id": "veggie-blast",
+      "name": "Veggie Blast",
+      "category": "veg-pizzas",
+      "is_available": true,
+      "sizes": {
+        "small": {
+          "base_price_cents": 28000
+        },
+        "medium": {
+          "base_price_cents": 46000
+        },
+        "large": {
+          "base_price_cents": 66000
+        }
+      },
+      "modifier_groups": [
+        "pizza_upgrade",
+        "extra_toppings"
+      ],
+      "description": "Capsicum, olives, paneer, mushroom, onion, tomato, sweet corn",
+      "tags": [
+        "veg"
+      ]
+    },
+    {
+      "id": "chicken-tikka-pizza",
+      "name": "Chicken Tikka",
+      "category": "non-veg-pizzas",
+      "is_available": true,
+      "sizes": {
+        "small": {
+          "base_price_cents": 26000
+        },
+        "medium": {
+          "base_price_cents": 48000
+        },
+        "large": {
+          "base_price_cents": 70000
+        }
+      },
+      "modifier_groups": [
+        "pizza_upgrade",
+        "extra_toppings"
+      ],
+      "description": "Chicken tikka, onion, red paprika, tandoori sauce",
+      "tags": [
+        "non-veg"
+      ]
+    },
+    {
+      "id": "chicken-pepperoni",
+      "name": "Chicken Pepperoni",
+      "category": "non-veg-pizzas",
+      "is_available": true,
+      "sizes": {
+        "small": {
+          "base_price_cents": 27000
+        },
+        "medium": {
+          "base_price_cents": 49000
+        },
+        "large": {
+          "base_price_cents": 69000
+        }
+      },
+      "modifier_groups": [
+        "pizza_upgrade",
+        "extra_toppings"
+      ],
+      "description": "Chicken pepperoni & cheese, red paprika, pizza sauce",
+      "tags": [
+        "non-veg"
+      ]
+    },
+    {
+      "id": "pindi-chicken",
+      "name": "Pindi Chicken",
+      "category": "non-veg-pizzas",
+      "is_available": true,
+      "sizes": {
+        "small": {
+          "base_price_cents": 27000
+        },
+        "medium": {
+          "base_price_cents": 51000
+        },
+        "large": {
+          "base_price_cents": 71000
+        }
+      },
+      "modifier_groups": [
+        "pizza_upgrade",
+        "extra_toppings"
+      ],
+      "description": "BBQ chicken, onion, red paprika, sweet corn, jalapeno, olives",
+      "tags": [
+        "non-veg"
+      ]
+    },
+    {
+      "id": "panama-chicken",
+      "name": "Panama Chicken",
+      "category": "non-veg-pizzas",
+      "is_available": true,
+      "sizes": {
+        "small": {
+          "base_price_cents": 28000
+        },
+        "medium": {
+          "base_price_cents": 50000
+        },
+        "large": {
+          "base_price_cents": 71000
+        }
+      },
+      "modifier_groups": [
+        "pizza_upgrade",
+        "extra_toppings"
+      ],
+      "description": "Chicken, capsicum, mushroom, red paprika, green olives",
+      "tags": [
+        "non-veg"
+      ]
+    },
+    {
+      "id": "chicken-burst",
+      "name": "Chicken Burst",
+      "category": "non-veg-pizzas",
+      "is_available": true,
+      "sizes": {
+        "small": {
+          "base_price_cents": 32000
+        },
+        "medium": {
+          "base_price_cents": 57000
+        },
+        "large": {
+          "base_price_cents": 82000
+        }
+      },
+      "modifier_groups": [
+        "pizza_upgrade",
+        "extra_toppings"
+      ],
+      "description": "Chicken tikka, meatball, salami, spicy chicken, red paprika, onion",
+      "tags": [
+        "non-veg"
+      ]
+    }
+  ],
+  "modifiers": [
+    {
+      "id": "c4_cheesilicious",
+      "name": "C4 Cheesilicious",
+      "group": "pizza_upgrade",
+      "price_cents": 8000,
+      "is_86d": false
+    },
+    {
+      "id": "zesty_c4",
+      "name": "Zesty C4",
+      "group": "pizza_upgrade",
+      "price_cents": 8000,
+      "is_86d": false
+    },
+    {
+      "id": "cheese_burst",
+      "name": "Cheese Burst",
+      "group": "pizza_upgrade",
+      "price_cents": 31000,
+      "is_86d": false
+    },
+    {
+      "id": "extra_cheese_pizza",
+      "name": "Extra Cheese",
+      "group": "pizza_upgrade",
+      "price_cents": 12000,
+      "is_86d": false
+    },
+    {
+      "id": "onion",
+      "name": "Onion",
+      "group": "toppings",
+      "price_cents": 4000,
+      "is_86d": false
+    },
+    {
+      "id": "capsicum",
+      "name": "Capsicum",
+      "group": "toppings",
+      "price_cents": 4000,
+      "is_86d": false
+    },
+    {
+      "id": "sweet_corn",
+      "name": "Sweet Corn",
+      "group": "toppings",
+      "price_cents": 4000,
+      "is_86d": false
+    },
+    {
+      "id": "jalapeno",
+      "name": "Jalapeno",
+      "group": "toppings",
+      "price_cents": 4000,
+      "is_86d": false
+    },
+    {
+      "id": "red_paprika",
+      "name": "Red Paprika",
+      "group": "toppings",
+      "price_cents": 4000,
+      "is_86d": false
+    },
+    {
+      "id": "mushroom",
+      "name": "Mushroom",
+      "group": "toppings",
+      "price_cents": 4000,
+      "is_86d": false
+    },
+    {
+      "id": "baby_corn",
+      "name": "Baby Corn",
+      "group": "toppings",
+      "price_cents": 4000,
+      "is_86d": false
+    },
+    {
+      "id": "black_olives",
+      "name": "Black Olives",
+      "group": "toppings",
+      "price_cents": 4000,
+      "is_86d": false
+    },
+    {
+      "id": "extra_chicken",
+      "name": "Extra Chicken",
+      "group": "toppings",
+      "price_cents": 20000,
+      "is_86d": false
+    },
+    {
+      "id": "pasta_chicken_addon",
+      "name": "Add Chicken",
+      "group": "pasta_addon",
+      "price_cents": 8000,
+      "is_86d": false
+    },
+    {
+      "id": "peri_peri_masala",
+      "name": "Peri-Peri Masala",
+      "group": "sides_addon",
+      "price_cents": 1000,
+      "is_86d": false
+    },
+    {
+      "id": "extra_thousand_dip",
+      "name": "Extra Thousand Dip",
+      "group": "sides_addon",
+      "price_cents": 1000,
+      "is_86d": false
+    },
+    {
+      "id": "extra_cheese_slices",
+      "name": "Extra Cheese Slices",
+      "group": "burger_addon",
+      "price_cents": 3000,
+      "is_86d": false
+    },
+    {
+      "id": "pepperoni",
+      "name": "Pepperoni",
+      "group": "toppings",
+      "price_cents": 4000,
+      "is_86d": false
+    },
+    {
+      "id": "extra_cheese",
+      "name": "Extra Cheese Topping",
+      "group": "toppings",
+      "price_cents": 6000,
+      "is_86d": false
+    },
+    {
+      "id": "anchovies",
+      "name": "Anchovies",
+      "group": "toppings",
+      "price_cents": 4000,
+      "is_86d": false
+    }
+  ],
+  "rules": {
+    "half_and_half": {
+      "requires_both_sides": true,
+      "max_toppings_per_side": 5,
+      "extra_cheese_side_specific": true
+    },
+    "max_whole_toppings": 8
+  }
+}

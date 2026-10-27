@@ -1,0 +1,50 @@
+{
+  "restaurant": { "name": "DIALOG Pizza", "currency": "INR" },
+  "sizes": [
+    { "id": "regular", "name": "Regular" },
+    { "id": "small", "name": "Small (S)" },
+    { "id": "medium", "name": "Medium (M)" },
+    { "id": "large", "name": "Large (L)" }
+  ],
+  "items": [
+    {
+      "id": "build-your-own",
+      "name": "Build Your Own Pizza",
+      "category": "veg-pizzas",
+      "is_available": true,
+      "sizes": {
+        "small": { "base_price_cents": 999 },
+        "medium": { "base_price_cents": 1249 },
+        "large": { "base_price_cents": 1499 }
+      },
+      "modifier_groups": ["whole_toppings", "toppings_left", "toppings_right", "crust"]
+    },
+    {
+      "id": "personal-pizza",
+      "name": "Personal Pizza",
+      "category": "pizza",
+      "is_available": true,
+      "sizes": { "small": { "base_price_cents": 799 } },
+      "modifier_groups": ["whole_toppings", "crust"]
+    }
+  ],
+  "modifiers": [
+    { "id": "pepperoni", "name": "Pepperoni", "group": "toppings", "price_cents": 150, "is_86d": false },
+    { "id": "mushroom", "name": "Mushroom", "group": "toppings", "price_cents": 125, "is_86d": false },
+    { "id": "extra_cheese", "name": "Extra Cheese", "group": "toppings", "price_cents": 175, "is_86d": false },
+    { "id": "sausage", "name": "Sausage", "group": "toppings", "price_cents": 150, "is_86d": false },
+    { "id": "onion", "name": "Onion", "group": "toppings", "price_cents": 100, "is_86d": false },
+    { "id": "green_pepper", "name": "Green Pepper", "group": "toppings", "price_cents": 100, "is_86d": false },
+    { "id": "anchovies", "name": "Anchovies", "group": "toppings", "price_cents": 175, "is_86d": true },
+    { "id": "thin_crust", "name": "Thin Crust", "group": "crust", "price_cents": 0, "is_86d": false },
+    { "id": "thick_crust", "name": "Thick Crust", "group": "crust", "price_cents": 100, "is_86d": false }
+  ],
+  "rules": {
+    "half_and_half": {
+      "requires_both_sides": true,
+      "max_toppings_per_side": 5,
+      "extra_cheese_side_specific": true
+    },
+    "max_whole_toppings": 8
+  }
+}

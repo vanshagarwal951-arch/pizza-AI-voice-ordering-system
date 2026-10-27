@@ -1,0 +1,21 @@
+{
+  "items": {
+    "margherita": {
+      "stock": null
+    },
+    "cafe-latte": {
+      "stock": null
+    },
+    "build-your-own": {
+      "stock": null
+    }
+  },
+  "modifiers": {
+    "c4_cheesilicious": {
+      "is_86d": false
+    },
+    "anchovies": {
+      "is_86d": false
+    }
+  }
+}

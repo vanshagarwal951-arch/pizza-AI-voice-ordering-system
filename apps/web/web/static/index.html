@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DIALOG — Dashboard</title>
+<link rel="stylesheet" href="/static/css/design-system.css"/>
+<link rel="stylesheet" href="/static/css/app.css"/>
+</head>
+<body>
+<div class="app">
+  <!-- Mobile top bar (hidden on desktop) -->
+  <div class="mobile-topbar">
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+    <span class="mobile-topbar-title">DIALOG Pizza</span>
+    <button class="btn btn-ghost btn-sm" id="mobile-refresh-btn" aria-label="Refresh data">↻</button>
+  </div>
+
+  <!-- Sidebar overlay for mobile -->
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <aside class="sidebar" id="sidebar" role="navigation" aria-label="Dashboard navigation">
+    <div class="brand-block">
+      <div class="brand-logo" id="brand-logo" aria-hidden="true">🍕</div>
+      <div class="brand-name" id="brand-name">DIALOG Pizza</div>
+      <div class="brand-tag">Voice Ordering Platform</div>
+    </div>
+    <nav class="nav">
+      <div class="nav-section">Main</div>
+      <div class="nav-item active" data-panel="overview" role="button" tabindex="0" aria-current="page"><span class="nav-icon" aria-hidden="true">◈</span> Overview</div>
+      <div class="nav-item" data-panel="menu" role="button" tabindex="0"><span class="nav-icon" aria-hidden="true">☰</span> Menu</div>
+      <div class="nav-item" data-panel="order" role="button" tabindex="0"><span class="nav-icon" aria-hidden="true">🎙</span> Live Order</div>
+      <div class="nav-item" data-panel="kitchen" role="button" tabindex="0"><span class="nav-icon" aria-hidden="true">👨‍🍳</span> Kitchen</div>
+      <div class="nav-section">Business</div>
+      <div class="nav-item" data-panel="analytics" role="button" tabindex="0"><span class="nav-icon" aria-hidden="true">📊</span> Analytics</div>
+      <div class="nav-item" data-panel="orders" role="button" tabindex="0"><span class="nav-icon" aria-hidden="true">📋</span> Orders</div>
+      <div class="nav-item" data-panel="chat" role="button" tabindex="0"><span class="nav-icon" aria-hidden="true">💬</span> Text Chat</div>
+      <div class="nav-section">Manage</div>
+      <div class="nav-item" data-panel="admin" role="button" tabindex="0"><span class="nav-icon" aria-hidden="true">⚙</span> Admin</div>
+      <div class="nav-item" data-panel="calls" role="button" tabindex="0"><span class="nav-icon" aria-hidden="true">📞</span> Call Logs</div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="status-pill"><span class="status-dot" id="sys-dot"></span><span id="sys-status">System online</span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="ds-flex ds-items-center ds-gap-md">
+        <h1 id="page-title">Overview</h1>
+        <a href="/" class="back-to-landing" aria-label="Back to landing page">← Home</a>
+      </div>
+      <div class="topbar-actions">
+        <select class="restaurant-select" id="restaurant-select" aria-label="Select restaurant"></select>
+        <button class="btn btn-ghost btn-sm" id="refresh-btn" aria-label="Refresh data">↻ Refresh</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- Overview -->
+      <section id="overview" class="panel active" aria-label="Overview">
+        <div class="stats-grid" id="stats-grid"></div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header"><span class="card-title">Platform Features</span><span class="badge badge-new">v2.0</span></div>
+            <div class="feature-grid" id="feature-grid"></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><span class="card-title">Recent Orders</span></div>
+            <div id="overview-orders"><p class="muted">Fetching orders…</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Menu -->
+      <section id="menu" class="panel" aria-label="Menu">
+        <div class="card menu-scroll" id="menu-content"><p class="muted">Loading menu…</p></div>
+      </section>
+
+      <!-- Live Order -->
+      <section id="order" class="panel" aria-label="Live Order">
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Live Cart</span>
+              <span class="badge badge-muted" id="ws-badge">○ Offline</span>
+            </div>
+            <label class="muted" for="session-input">Session / Room</label>
+            <input id="session-input" value="demo-room" class="mb-sm" aria-label="Session room name"/>
+            <div id="cart-content"><p class="muted">Waiting for orders…</p></div>
+            <div class="mt-sm flex-row gap-sm">
+              <select id="payment-method" style="width:auto" aria-label="Payment method">
+                <option value="cod">Cash on Delivery</option>
+                <option value="upi">UPI</option>
+                <option value="razorpay">Razorpay</option>
+              </select>
+              <input id="customer-phone" placeholder="+91 98765 43210" style="flex:1" aria-label="Customer phone number"/>
+            </div>
+            <p class="muted mt-sm" id="checkout-hint">Payment &amp; phone saved for this session — used when order is finalized.</p>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Voice Order</span>
+              <span class="badge badge-live">LiveKit + Silero VAD</span>
+            </div>
+            <p class="muted mb-sm">Click Connect to go live. The voice agent and microphone start only for your session, and stop when you disconnect.</p>
+            <button class="btn btn-primary" id="join-voice">Connect Microphone</button>
+            <p id="voice-status" class="muted mt-sm" role="status" aria-live="polite"></p>
+            <div class="hr"></div>
+            <p class="muted mb-sm">Quick actions</p>
+            <div class="flex-row gap-sm" style="flex-wrap:wrap">
+              <button class="btn btn-primary btn-sm" onclick="quickAdd()">+ Margherita M</button>
+              <button class="btn btn-ghost btn-sm" onclick="readBack()">Read Back</button>
+              <button class="btn btn-ghost btn-sm" onclick="finalize()">Finalize Order</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kitchen KDS -->
+      <section id="kitchen" class="panel" aria-label="Kitchen Display">
+        <div class="card-header mb-sm" style="display:flex;justify-content:space-between">
+          <span class="card-title">Kitchen Display</span>
+          <button class="btn btn-ghost btn-sm" onclick="loadKds()" aria-label="Refresh kitchen display">↻ Refresh</button>
+        </div>
+        <div class="kds-grid">
+          <div class="kds-col"><div class="kds-col-title">Queued</div><div id="kds-queued"></div></div>
+          <div class="kds-col"><div class="kds-col-title">Preparing</div><div id="kds-preparing"></div></div>
+          <div class="kds-col"><div class="kds-col-title">Ready</div><div id="kds-ready"></div></div>
+        </div>
+      </section>
+
+      <!-- Analytics -->
+      <section id="analytics" class="panel" aria-label="Analytics">
+        <div class="stats-grid" id="analytics-stats"></div>
+        <div class="card">
+          <div class="card-title mb-sm">Orders by Hour (7 days)</div>
+          <div class="bar-chart" id="hourly-chart" role="img" aria-label="Bar chart of orders by hour over the last 7 days"></div>
+        </div>
+      </section>
+
+      <!-- Orders -->
+      <section id="orders" class="panel" aria-label="Order History">
+        <div class="card"><div class="card-title mb-sm">Order History</div><div id="orders-content"></div></div>
+      </section>
+
+      <!-- Chat -->
+      <section id="chat" class="panel" aria-label="Text Chat">
+        <div class="card">
+          <div class="card-header"><span class="card-title">Text Chat</span><span class="badge badge-muted" id="chat-mode">Groq AI</span></div>
+          <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-label="Chat messages"></div>
+          <div class="flex-row">
+            <input id="chat-input" class="flex-1" placeholder="Try: medium margherita with extra cheese" aria-label="Chat message"/>
+            <button class="btn btn-primary" id="chat-send">Send</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Admin -->
+      <section id="admin" class="panel" aria-label="Admin Panel">
+        <div class="grid-2">
+          <div class="card login-box" id="login-card">
+            <div class="card-title mb-sm">Staff Login</div>
+            <label class="muted" for="admin-user">Username</label>
+            <input id="admin-user" value="admin" placeholder="Username" class="mb-sm"/>
+            <label class="muted" for="admin-pass">Password</label>
+            <input id="admin-pass" type="password" placeholder="Password" class="mb-sm"/>
+            <button class="btn btn-primary" style="width:100%" id="login-btn">Sign In</button>
+            <p class="muted mt-sm">Configure credentials via ADMIN_PASSWORD environment variable.</p>
+          </div>
+          <div class="card" id="admin-panel" style="display:none">
+            <div class="card-title mb-sm">Menu Availability</div>
+            <div id="inventory-content"><p class="muted">Sign in to manage inventory</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Calls -->
+      <section id="calls" class="panel" aria-label="Call Logs">
+        <div class="card"><div class="card-title mb-sm">Call Logs</div><div id="calls-content"></div></div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/livekit-client@2.6.2/dist/livekit-client.umd.min.js"></script>
+<script src="/static/js/app.js?v=7"></script>
+</body>
+</html>
