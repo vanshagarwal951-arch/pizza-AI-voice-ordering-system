@@ -26,3 +26,6 @@ data/notifications/sms/*.txt
 
 # Generated secrets
 .auth_secret
+
+# AI coding assistant configuration and plans
+.claude/
